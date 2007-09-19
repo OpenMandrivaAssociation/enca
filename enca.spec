@@ -1,17 +1,13 @@
 %define name 		enca
 %define major 		0
-%define mdkversion		%(perl -pe '/(\\d+)\\.(\\d)\\.?(\\d)?/; $_="$1$2".($3||0)' /etc/mandriva-release)
-%if %mdkversion <= 900
-%define libname		libenca%major
-%else
 %define	libname		%mklibname %name %major
-%endif
+%define develname	%mklibname %name -d
 
 Summary:		A program that can detect and convert between character sets
 Name: 			enca
 Version: 		1.9
-Release: 		%mkrel 4
-License: 		GPL
+Release: 		%mkrel 5
+License: 		GPLv2+
 Group: 			Text tools
 Source: 		http://trific.ath.cx/Ftp/enca/enca-%version.tar.bz2
 URL: 			http://trific.ath.cx/software/enca/
@@ -50,28 +46,26 @@ independently on the language.
 This package contains shared Enca library other programs can make use of.
 
 
-%package -n %libname-devel
+%package -n %develname
 Summary: Header files and libraries for Enca development
 Group: Development/C
-Requires: %{libname} = %{version}-%release
-Provides: libenca-devel = %version-%release
-Provides: enca-devel = %version-%release
+Requires: %{libname} = %{version}-%{release}
+Provides: libenca-devel = %{version}-%{release}
+Provides: enca-devel = %{version}-%{release}
+Obsoletes: %{mklibname enca 0 -d}
 
-%description -n %libname-devel
-The enca-devel package contains the static libraries and header files
+%description -n %develname
+The %develname package contains the static libraries and header files
 for writing programs using the Extremely Naive Charset Analyser library,
 and its API documentation.
 
-Install enca-devel if you are going to create applications using the Enca
+Install %develname if you are going to create applications using the Enca
 library.
 
 %prep
 %setup -q
 
 %build
-%if %mdkversion <= 1000
-%define __libtoolize true
-%endif
 %configure2_5x
 %make
 
@@ -87,20 +81,19 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(755,root,root)
+%doc AUTHORS ChangeLog ChangeLog.prelib FAQ NEWS README README.devel THANKS TODO
 %{_bindir}/enca
 %{_bindir}/enconv
 %{_libexecdir}/%{name}/extconv/*
 %dir %{_libexecdir}/%{name}/extconv
 %dir %{_libexecdir}/%{name}
-%doc %{_mandir}/man1/enca.1*
-%doc %{_mandir}/man1/enconv.1*
-%doc AUTHORS ChangeLog ChangeLog.prelib FAQ NEWS README README.devel THANKS TODO
+%{_mandir}/man1/*
 
 %files -n %libname
 %defattr(-,root,root)
-%{_libdir}/libenca.so.*
+%{_libdir}/libenca.so.%{major}*
 
-%files -n %libname-devel
+%files -n %develname
 %defattr(-,root,root)
 %{_includedir}/enca.h
 %{_libdir}/pkgconfig/enca.pc
@@ -109,5 +102,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libenca.so
 %doc %{_datadir}/gtk-doc/html/libenca/*
 %doc %dir %{_datadir}/gtk-doc/html/libenca
-
 
