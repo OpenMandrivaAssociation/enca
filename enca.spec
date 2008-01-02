@@ -11,6 +11,7 @@ License: 		GPLv2+
 Group: 			Text tools
 Source: 		http://trific.ath.cx/Ftp/enca/enca-%version.tar.bz2
 URL: 			http://trific.ath.cx/software/enca/
+BuildRoot: 		%{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires: 		recode-devel
 
 %description
