@@ -6,7 +6,7 @@
 Summary:		A program that can detect and convert between character sets
 Name: 			enca
 Version: 		1.9
-Release: 		%mkrel 6
+Release: 		%mkrel 7
 License: 		GPLv2+
 Group: 			Text tools
 Source: 		http://trific.ath.cx/Ftp/enca/enca-%version.tar.bz2
