@@ -5,12 +5,12 @@
 
 Summary:		A program that can detect and convert between character sets
 Name: 			enca
-Version: 		1.9
-Release: 		%mkrel 7
+Version: 		1.10
+Release: 		%mkrel 1
 License: 		GPLv2+
 Group: 			Text tools
-Source: 		http://trific.ath.cx/Ftp/enca/enca-%version.tar.bz2
-URL: 			http://trific.ath.cx/software/enca/
+Source: 		http://dl.cihar.com/%{name}/%{name}-%{version}.tar.lzma
+URL: 			http://gitorious.org/enca
 BuildRoot: 		%{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires: 		recode-devel
 
@@ -85,7 +85,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(755,root,root)
-%doc AUTHORS ChangeLog ChangeLog.prelib FAQ NEWS README README.devel THANKS TODO
+%doc AUTHORS ChangeLog ChangeLog.prelib FAQ README README.devel THANKS TODO
 %{_bindir}/enca
 %{_bindir}/enconv
 %{_libexecdir}/%{name}/extconv/*
