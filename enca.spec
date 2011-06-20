@@ -6,7 +6,7 @@
 Summary:		A program that can detect and convert between character sets
 Name: 			enca
 Version: 		1.13
-Release: 		%mkrel 3
+Release: 		%mkrel 4
 License: 		GPLv2+
 Group: 			Text tools
 Source: 		http://dl.cihar.com/%{name}/%{name}-%{version}.tar.lzma
@@ -72,6 +72,10 @@ library.
 %install
 rm -rf $RPM_BUILD_ROOT
 %makeinstall HTML_DIR=$RPM_BUILD_ROOT/%{_datadir}/gtk-doc/html
+
+%if "%{_lib}" == "lib64"
+perl -pi -e "s|-L/usr/lib\b|-L%{_libdir}|g" %{buildroot}%{_libdir}/*.la
+%endif
 
 %if %mdkversion < 200900
 %post -n %libname -p /sbin/ldconfig
