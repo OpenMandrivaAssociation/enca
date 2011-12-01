@@ -70,8 +70,8 @@ library.
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
-%makeinstall HTML_DIR=$RPM_BUILD_ROOT/%{_datadir}/gtk-doc/html
+rm -rf %{buildroot}
+%makeinstall HTML_DIR=%{buildroot}/%{_datadir}/gtk-doc/html
 
 %if "%{_lib}" == "lib64"
 perl -pi -e "s|-L/usr/lib\b|-L%{_libdir}|g" %{buildroot}%{_libdir}/*.la
@@ -85,7 +85,7 @@ perl -pi -e "s|-L/usr/lib\b|-L%{_libdir}|g" %{buildroot}%{_libdir}/*.la
 %endif
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(755,root,root)
