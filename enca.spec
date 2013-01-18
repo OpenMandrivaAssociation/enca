@@ -4,11 +4,11 @@
 
 Summary:	A program that can detect and convert between character sets
 Name:		enca
-Version:	1.13
-Release:	5
+Version:	1.14
+Release:	1
 License:	GPLv2+
 Group:		Text tools
-Source:		http://dl.cihar.com/%{name}/%{name}-%{version}.tar.lzma
+Source0:	http://dl.cihar.com/%{name}/%{name}-%{version}.tar.gz
 URL:		http://gitorious.org/enca
 BuildRequires:	recode-devel
 
