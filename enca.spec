@@ -5,7 +5,7 @@
 Summary:	A program that can detect and convert between character sets
 Name:		enca
 Version:	1.14
-Release:	5
+Release:	6
 License:	GPLv2+
 Group:		Text tools
 Url:		http://gitorious.org/enca
