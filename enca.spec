@@ -5,7 +5,7 @@
 Summary:	A program that can detect and convert between character sets
 Name:		enca
 Version:	1.15
-Release:	3
+Release:	4
 License:	GPLv2+
 Group:		Text tools
 Source:		http://dl.cihar.com/%{name}/%{name}-%{version}.tar.bz2
