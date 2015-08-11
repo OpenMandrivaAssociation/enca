@@ -1,6 +1,7 @@
 %define major 		0
 %define libname		%mklibname %{name} %{major}
 %define develname	%mklibname %{name} -d
+%define _disable_rebuild_configure 1
 
 Summary:	A program that can detect and convert between character sets
 Name:		enca
