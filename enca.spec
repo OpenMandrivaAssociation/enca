@@ -5,13 +5,14 @@
 
 Summary:	A program that can detect and convert between character sets
 Name:		enca
-Version:	1.15
-Release:	8
+Version:	1.19
+Release:	1
 License:	GPLv2+
 Group:		Text tools
-Source:		http://dl.cihar.com/%{name}/%{name}-%{version}.tar.bz2
-URL:		http://gitorious.org/enca
+Source0:	https://github.com/nijel/enca/archive/%{version}.tar.gz
+URL:		https://github.com/nijel/enca
 BuildRequires:	recode-devel
+BuildRequires:	gtk-doc
 
 %description
 Enca is an Extremely Naive Charset Analyser. It detects character set and
@@ -69,7 +70,7 @@ Install it if you are going to create applications using the Enca library.
 %makeinstall_std
 
 %files
-%doc AUTHORS ChangeLog ChangeLog.prelib FAQ README README.devel THANKS TODO
+%doc AUTHORS ChangeLog ChangeLog.prelib FAQ README THANKS TODO
 %{_bindir}/enca
 %{_bindir}/enconv
 %{_libexecdir}/%{name}/extconv/*
@@ -84,4 +85,4 @@ Install it if you are going to create applications using the Enca library.
 %{_includedir}/enca.h
 %{_libdir}/pkgconfig/enca.pc
 %{_libdir}/libenca.so
-
+%doc %{_datadir}/gtk-doc/html/libenca
