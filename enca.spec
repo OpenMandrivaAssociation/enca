@@ -6,7 +6,7 @@
 Summary:	A program that can detect and convert between character sets
 Name:		enca
 Version:	1.19
-Release:	1
+Release:	
 License:	GPLv2+
 Group:		Text tools
 Source0:	https://github.com/nijel/enca/archive/%{version}.tar.gz
@@ -63,11 +63,11 @@ Install it if you are going to create applications using the Enca library.
 %setup -q
 
 %build
-%configure2_5x --disable-static
-%make
+%configure --disable-static
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 %files
 %doc AUTHORS ChangeLog ChangeLog.prelib FAQ README THANKS TODO
