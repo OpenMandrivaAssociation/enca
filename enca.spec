@@ -11,6 +11,11 @@ License:	GPLv2+
 Group:		Text tools
 Source0:	https://github.com/nijel/enca/archive/%{version}.tar.gz
 URL:		https://github.com/nijel/enca
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	recode-devel
 BuildRequires:	gtk-doc
 
